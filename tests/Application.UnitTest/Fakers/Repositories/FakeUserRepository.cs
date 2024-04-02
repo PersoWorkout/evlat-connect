@@ -1,10 +1,5 @@
 ﻿using Application.Users;
 using Domain.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.UnitTest.Fakers.Repositories
 {
@@ -33,7 +28,17 @@ namespace Application.UnitTest.Fakers.Repositories
             return username + (counter > 0 ? counter : "");
         }
 
+        public Task<User> GetProfessorById(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<User>> GetProfessors()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<User> GetStudentById(Guid Id)
         {
             throw new NotImplementedException();
         }
@@ -44,11 +49,6 @@ namespace Application.UnitTest.Fakers.Repositories
         }
 
         public Task<User> GetUserById(Guid Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> GetUserByUsername(string username)
         {
             throw new NotImplementedException();
         }
