@@ -1,8 +1,8 @@
 ﻿namespace Domain.Abstract
 {
-    public abstract class BaseEntity(Guid id)
+    public abstract class BaseEntity
     {
-        public Guid Id { get; init; } = id;
+        public Guid Id { get; init; } = Guid.NewGuid();
         public DateTime CreatedAt { get; init; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
     }
