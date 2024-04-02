@@ -21,7 +21,15 @@ namespace Domain.UnitTests.Users
         public void UpdateByUser_ShouldUpdateNoFields_WhenValuesAreNull()
         {
             //Arrange
-            var user = new User(Firstname, Lastname, Username, Role, Password, PhoneNumber);
+            var user = new User
+            {
+                Firstname = Firstname,
+                Lastname = Lastname,
+                Username = Username,
+                Role = Role,
+                Password = Password,
+                PhoneNumber = PhoneNumber
+            };
 
             //Act
             user.UpdateByUser();
@@ -42,7 +50,15 @@ namespace Domain.UnitTests.Users
             const string NewFirstname = "john.doe2";
             var NewPassword = PasswordValueObject.Create("NewPassword123!").Data!;
 
-            var user = new User(Firstname, Lastname, Username, Role, Password, PhoneNumber);
+            var user = new User
+            {
+                Firstname = Firstname,
+                Lastname = Lastname,
+                Username = Username,
+                Role = Role,
+                Password = Password,
+                PhoneNumber = PhoneNumber
+            };
 
             //Act
             user.UpdateByUser(firstname: NewFirstname, password: NewPassword);
@@ -63,7 +79,15 @@ namespace Domain.UnitTests.Users
             const string NewFirstname = "john.doe2";
             const UserRole NewRole = UserRole.Professeur;
 
-            var user = new User(Firstname, Lastname, Username, Role, Password, PhoneNumber);
+            var user = new User
+            {
+                Firstname = Firstname,
+                Lastname = Lastname,
+                Username = Username,
+                Role = Role,
+                Password = Password,
+                PhoneNumber = PhoneNumber
+            };
 
             //Act
             user.UpdateByAdmin(firstname: NewFirstname, role: NewRole);

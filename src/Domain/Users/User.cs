@@ -3,20 +3,14 @@ using Domain.Users.ValueObjects;
 
 namespace Domain.Users
 {
-    public class User(
-        string firstname,
-        string lastname,
-        string username,
-        UserRole role,
-        PasswordValueObject password,
-        PhoneNumberValueObject phoneNumber) : BaseEntity()
+    public class User : BaseEntity
     {
-        public string Firstname { get; set; } = firstname;
-        public string Lastname { get; set; } = lastname;
-        public string Username { get; set; } = username;
-        public UserRole Role { get; set; } = role;
-        public PasswordValueObject Password { get; set; } = password;
-        public PhoneNumberValueObject PhoneNumber { get; set; } = phoneNumber;
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Username { get; set; }
+        public UserRole Role { get; set; }
+        public PasswordValueObject Password { get; set; }
+        public PhoneNumberValueObject PhoneNumber { get; set; }
 
         public void UpdateByUser(
             string? firstname = null,
