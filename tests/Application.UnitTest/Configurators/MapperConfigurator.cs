@@ -1,10 +1,6 @@
-﻿using Application.Users;
+﻿using Application.Classes;
+using Application.Users;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.UnitTest.Configurators
 {
@@ -14,6 +10,13 @@ namespace Application.UnitTest.Configurators
         {
             return new MapperConfiguration(config =>
                 config.AddProfile<UserProfile>())
+                .CreateMapper();
+        }
+
+        public static IMapper ConfigureClassProfile()
+        {
+            return new MapperConfiguration(config =>
+                config.AddProfile<ClassProfile>())
                 .CreateMapper();
         }
     }
