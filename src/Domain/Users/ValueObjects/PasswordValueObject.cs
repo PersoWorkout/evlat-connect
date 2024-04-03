@@ -12,7 +12,7 @@ namespace Domain.Users.ValueObjects
         [GeneratedRegex(PasswordRegexPattern, RegexOptions.None, 250)]
         private static partial Regex MyRegex();
 
-        public string Value { get; set; }
+        public string Value { get; init; }
 
         private PasswordValueObject(string value)
         {

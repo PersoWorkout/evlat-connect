@@ -4,6 +4,9 @@ namespace Domain.Auth
 {
     public static class AuthErrors
     {
+        public static readonly Error UsernameEmpty =
+            new("Username.EMpty", "'Username' must not be empty.");
+
         public static readonly Error InvalidCredentials = 
             new("Credentials.Invalid", 
                 "The credentials are not valid");

@@ -1,10 +1,12 @@
-﻿namespace Domain.Auth
+﻿using Domain.Auth.ValueObjects;
+
+namespace Domain.Auth
 {
-    public class Session
+    public class Session(Guid userId)
     {
-        public string Token { get; set; }
-        public Guid UserId {  get; set; }
+        public TokenValueObject Token { get; set; } = new TokenValueObject();
+        public Guid UserId { get; set; } = userId;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public DateTime ExpiredAt { get; set; } = DateTime.Now.AddHours(6);
+        public DateTime ExpiresAt { get; set; } = DateTime.Now.AddHours(6);
     }
 }
