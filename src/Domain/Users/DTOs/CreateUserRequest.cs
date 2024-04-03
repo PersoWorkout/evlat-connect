@@ -7,5 +7,6 @@
         public required int Role { get; set; }
         public required string Password { get; set; }
         public required string PhoneNumber { get; set; }
+        public string ClassId { get; set; }
     }
 }

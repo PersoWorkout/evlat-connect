@@ -1,4 +1,5 @@
 ﻿using Domain.Abstract;
+using Domain.Classes;
 using Domain.Users.ValueObjects;
 
 namespace Domain.Users
@@ -11,6 +12,10 @@ namespace Domain.Users
         public UserRole Role { get; set; }
         public PasswordValueObject Password { get; set; }
         public PhoneNumberValueObject PhoneNumber { get; set; }
+
+        public Guid? ClassId { get; set; }
+        public Class? CLass { get; set; }
+        public List<Class>? Classes { get; set; }
 
         public void UpdateByUser(
             string? firstname = null,

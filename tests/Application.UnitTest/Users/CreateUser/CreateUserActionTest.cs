@@ -77,7 +77,8 @@ namespace Application.UnitTest.Users.CreateUser
                 Lastname = "Doe",
                 Role = UserRole.Student.GetHashCode(),
                 Password = "Password123!",
-                PhoneNumber = "+33601010101"
+                PhoneNumber = "+33601010101",
+                ClassId = Guid.NewGuid().ToString()
             };
         }
     }

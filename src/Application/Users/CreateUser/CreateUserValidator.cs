@@ -43,6 +43,12 @@ namespace Application.Users.CreateUser
                     Enum.IsDefined(typeof(UserRole), role))
                 .WithErrorCode(UserErrors.RoleNotDefined.Code)
                 .WithMessage(UserErrors.RoleNotDefined.Description);
+
+            RuleFor(x => x.ClassId)
+                .NotEmpty()
+                .Must(classId =>
+                    Guid.TryParse(classId, out Guid value))
+                .When(x => (UserRole)x.Role == UserRole.Student);
         }
 
     }

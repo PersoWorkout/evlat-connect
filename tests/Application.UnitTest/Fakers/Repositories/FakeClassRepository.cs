@@ -24,9 +24,9 @@ namespace Application.UnitTest.Fakers.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Class> GetById(Guid id)
+        public async Task<Class> GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return Classes.FirstOrDefault(x => x.Id == id);
         }
 
         public Task<List<Class>> GetByType(ClassType type)
@@ -37,6 +37,11 @@ namespace Application.UnitTest.Fakers.Repositories
         public Task<Class> Update(Class entity)
         {
             throw new NotImplementedException();
+        }
+
+        public void ResetClasses()
+        {
+            Classes = [];
         }
     }
 }

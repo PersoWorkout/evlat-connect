@@ -12,5 +12,6 @@ namespace Application.Users.CreateUser
         public required UserRole Role { get; set; }
         public required PasswordValueObject Password { get; set; }
         public required PhoneNumberValueObject PhoneNumber { get; set; }
+        public Guid? ClassId { get; set; }
     }
 }
