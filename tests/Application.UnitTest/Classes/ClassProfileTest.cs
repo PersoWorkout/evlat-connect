@@ -1,4 +1,5 @@
 ﻿using Application.Classes.CreateClass;
+using Application.Classes.UpdateClasse;
 using Application.UnitTest.Configurators;
 using AutoMapper;
 using Domain.Classes;
@@ -35,6 +36,25 @@ namespace Application.UnitTest.Classes
             Assert.IsType<CreateClassCommand>(command);
             Assert.Equal(ProfessorId, command.ProfessorId);
             Assert.Equal(Type, command.Type);
+        }
+
+        [Fact]
+        public void Map_ShouldMapUpdateClassRequest_ToUpdateClassCommand()
+        {
+            //Arrange
+            var request = new UpdateClassRequest
+            {
+                Name = Name,
+                Promotion = Promotion
+            };
+
+            //Act
+            var command = _mapper.Map<UpdateClassCommand>(request);
+
+            //Assert
+            Assert.IsType<UpdateClassCommand>(command);
+            Assert.Null(command.Type);
+            Assert.Equal(Guid.Empty, command.ProfessorId);
         }
 
         [Fact]

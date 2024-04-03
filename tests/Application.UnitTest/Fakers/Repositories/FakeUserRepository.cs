@@ -28,9 +28,11 @@ namespace Application.UnitTest.Fakers.Repositories
             return username + (counter > 0 ? counter : "");
         }
 
-        public Task<User> GetProfessorById(Guid Id)
+        public async Task<User> GetProfessorById(Guid id)
         {
-            throw new NotImplementedException();
+            return Users.FirstOrDefault(x =>
+                x.Role == UserRole.Professeur &&
+                x.Id == id);
         }
 
         public Task<IEnumerable<User>> GetProfessors()
@@ -61,6 +63,11 @@ namespace Application.UnitTest.Fakers.Repositories
         public Task<User> Update(User user)
         {
             throw new NotImplementedException();
+        }
+
+        public void ClearUsers()
+        {
+            Users = [];
         }
     }
 }

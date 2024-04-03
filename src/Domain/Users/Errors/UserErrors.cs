@@ -7,5 +7,8 @@ namespace Domain.Users.Errors
         public static readonly Error FirstnameEmpty = new("Firstname.Empty", "'Firstname' must not be empty.");
         public static readonly Error LastnameEmpty = new("Lastname.Empty", "'Lastname' must not be empty.");
         public static readonly Error RoleNotDefined = new("Role.NotDefined", "The value is not a valid user role");
+
+        public static Error ProfessorNotFound(string id) => new("Professor.NotFound", $"The professor with id {id} was not found");
+
     }
 }
