@@ -14,9 +14,15 @@ namespace Application.UnitTest.Fakers.Repositories
             return entity;
         }
 
-        public Task<int> Delete(Class entity)
+        public async Task<int> Delete(Class entity)
         {
-            throw new NotImplementedException();
+            var idx = Classes.FindIndex(x => x.Id == entity.Id);
+
+            if (idx == -1)
+                return 0;
+
+            Classes.RemoveAt(idx);
+            return 1;
         }
 
         public async Task<IEnumerable<Class>> GetAll()
