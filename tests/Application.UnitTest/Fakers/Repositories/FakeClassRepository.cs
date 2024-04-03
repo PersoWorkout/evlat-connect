@@ -19,9 +19,9 @@ namespace Application.UnitTest.Fakers.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Class>> GetAll()
+        public async Task<IEnumerable<Class>> GetAll()
         {
-            throw new NotImplementedException();
+            return Classes.ToList();
         }
 
         public async Task<Class> GetById(Guid id)
