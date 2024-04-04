@@ -13,9 +13,14 @@ namespace Application.UnitTest.Fakers.Repositories
             return user;
         }
 
-        public Task<int> Delete(User user)
+        public async Task<int> Delete(User user)
         {
-            throw new NotImplementedException();
+            var index = Users.FindIndex(x => x.Id == user.Id);
+
+            if (index == -1) return 0;
+
+            Users.RemoveAt(index);
+            return 1;
         }
 
         public async Task<string> GetNewUsername(string firstname, string lastname)
