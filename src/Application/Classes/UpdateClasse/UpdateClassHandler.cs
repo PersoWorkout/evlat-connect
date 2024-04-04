@@ -25,7 +25,7 @@ namespace Application.Classes.UpdateClasse
 
             if (request.ProfessorId.HasValue)
             {
-                var professor = await _userRepository.GetProfessorById(
+                var professor = await _userRepository.GetUserById(
                     request.ProfessorId.Value);
 
                 if(professor is null)

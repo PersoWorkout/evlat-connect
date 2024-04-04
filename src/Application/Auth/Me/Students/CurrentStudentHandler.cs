@@ -32,7 +32,7 @@ namespace Application.Auth.Me.Students
                     AuthErrors.SessionExpired,
                     HttpStatusCode.Unauthorized);
 
-            var user = await _userRepository.GetStudentById(session.UserId);
+            var user = await _userRepository.GetUserById(session.UserId);
             if (user is null || user.Role != UserRole.Student)
                 return Result<CurrentStudentResponse>.Failure(
                     UserErrors.StudentNotFound(session.UserId.ToString()),

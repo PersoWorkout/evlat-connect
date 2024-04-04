@@ -32,7 +32,7 @@ namespace Application.Auth.Me.Professors
                     AuthErrors.SessionExpired,
                     HttpStatusCode.Unauthorized);
 
-            var user = await _userRepository.GetProfessorById(session.UserId);
+            var user = await _userRepository.GetUserById(session.UserId);
             if (user is null || user.Role != UserRole.Professeur)
                 return Result<CurrentProfessorResponse>.Failure(
                     UserErrors.ProfessorNotFound(session.UserId.ToString()),

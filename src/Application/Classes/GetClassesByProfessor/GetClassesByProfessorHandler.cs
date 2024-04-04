@@ -16,7 +16,7 @@ namespace Application.Classes.GetClassesByProfessor
 
         public async Task<Result<IEnumerable<Class>>> Handle(GetClassesByProfessorQuery request, CancellationToken cancellationToken)
         {
-            var professor = await _userRepository.GetProfessorById(request.ProfessorId);
+            var professor = await _userRepository.GetUserById(request.ProfessorId);
             if (professor is null)
                 return Result<IEnumerable<Class>>.Failure(
                     UserErrors.ProfessorNotFound(request.ProfessorId.ToString()),

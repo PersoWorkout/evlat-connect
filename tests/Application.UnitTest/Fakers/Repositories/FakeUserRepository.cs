@@ -28,23 +28,9 @@ namespace Application.UnitTest.Fakers.Repositories
             return username + (counter > 0 ? counter : "");
         }
 
-        public async Task<User> GetProfessorById(Guid id)
-        {
-            return Users.FirstOrDefault(x =>
-                x.Role == UserRole.Professeur &&
-                x.Id == id);
-        }
-
         public Task<IEnumerable<User>> GetProfessors()
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<User> GetStudentById(Guid id)
-        {
-            return Users.FirstOrDefault(x =>
-                x.Role == UserRole.Student &&
-                x.Id == id);
         }
 
         public Task<IEnumerable<User>> GetStudents()
@@ -52,9 +38,9 @@ namespace Application.UnitTest.Fakers.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<User> GetUserById(Guid Id)
+        public async Task<User> GetUserById(Guid id)
         {
-            throw new NotImplementedException();
+            return Users.FirstOrDefault(x => x.Id == id);
         }
 
         public Task<IEnumerable<User>> GetUsers()
