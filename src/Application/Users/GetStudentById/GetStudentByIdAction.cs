@@ -7,12 +7,9 @@ using System.Net;
 
 namespace Application.Users.GetStudentById
 {
-    public class GetStudentByIdAction(
-        ISender sender, 
-        IMapper mapper)
+    public class GetStudentByIdAction(ISender sender)
     {
         private readonly ISender _sender = sender;
-        private readonly IMapper _mapper = mapper;
 
         public async Task<Result<CurrentStudentResponse>> Execute(string id)
         {
