@@ -17,9 +17,15 @@ namespace Application.UnitTest.Fakers.Repositories
             return session;
         }
 
-        public Task<int> Delete(string token)
+        public async Task<int> Delete(Session session)
         {
-            throw new NotImplementedException();
+            var idx = Sessions.FindIndex(x => x.Token == session.Token);
+
+            if (idx == -1)
+                return 0;
+
+            Sessions.RemoveAt(idx);
+            return 1;
         }
 
         public async Task<Session> GetByToken(TokenValueObject token)

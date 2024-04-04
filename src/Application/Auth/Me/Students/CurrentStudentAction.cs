@@ -1,5 +1,6 @@
 ﻿using Domain.Abstract;
 using Domain.Auth.DTOs;
+using Domain.Auth.ValueObjects;
 using MediatR;
 
 namespace Application.Auth.Me.Students
@@ -8,9 +9,9 @@ namespace Application.Auth.Me.Students
     {
         private readonly ISender _sender = sender;
 
-        public async Task<Result<CurrentStudentResponse>> Execute(CurrentStudentQuery request)
+        public async Task<Result<CurrentStudentResponse>> Execute(TokenValueObject token)
         {
-            return await _sender.Send(request);
+            return await _sender.Send(new CurrentStudentQuery(token));
         }
     }
 }

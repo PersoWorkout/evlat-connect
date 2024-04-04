@@ -9,7 +9,7 @@ namespace Application.Auth
     {
         Task<Session> GetByToken(TokenValueObject token);
         Task<Session> Create(Session session);
-        Task<int> Delete(TokenValueObject token);
+        Task<int> Delete(Session session);
         Task<User> GetUserByUsername(string username);
         Task<bool> VerifyCredentials(string username, PasswordValueObject password);
     }
