@@ -53,5 +53,12 @@ namespace Application.UnitTest.Fakers.Repositories
         {
             Classes = [];
         }
+
+        public async Task<IEnumerable<Class>> GetByProfessor(Guid professorId)
+        {
+            return Classes
+                .Where(x => x.ProfessorId == professorId)
+                .ToList();
+        }
     }
 }

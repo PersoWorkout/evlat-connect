@@ -2,12 +2,7 @@
 using Application.UnitTest.Fakers.Repositories;
 using Domain.Auth;
 using Domain.Auth.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.UnitTest.Auth.Logout
 {
