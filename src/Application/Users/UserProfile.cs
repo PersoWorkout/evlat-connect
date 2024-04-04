@@ -27,9 +27,6 @@ namespace Application.Users
                 .ForMember(dest => dest.Role,
                     opt => opt.MapFrom(
                         src => src.Role.ToString()))
-                .ForMember(dest => dest.Password,
-                    opt => opt.MapFrom(
-                        src => src.Password.Value))
                 .ForMember(dest => dest.PhoneNumber,
                     opt => opt.MapFrom(
                         src => src.PhoneNumber.Value));

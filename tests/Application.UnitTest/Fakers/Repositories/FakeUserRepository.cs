@@ -40,9 +40,11 @@ namespace Application.UnitTest.Fakers.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<User> GetStudentById(Guid Id)
+        public async Task<User> GetStudentById(Guid id)
         {
-            throw new NotImplementedException();
+            return Users.FirstOrDefault(x =>
+                x.Role == UserRole.Student &&
+                x.Id == id);
         }
 
         public Task<IEnumerable<User>> GetStudents()

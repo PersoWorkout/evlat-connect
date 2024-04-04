@@ -16,4 +16,9 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Auth\Logout\" />
+    <Folder Include="Auth\Me\Professors\" />
+  </ItemGroup>
+
 </Project>

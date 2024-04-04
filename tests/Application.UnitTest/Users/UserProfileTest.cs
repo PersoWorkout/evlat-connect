@@ -101,7 +101,6 @@ namespace Application.UnitTest.Users
             Assert.Equal(user.Firstname, response.Firstname);
             Assert.Equal(user.Lastname, response.Lastname);
             Assert.Equal(user.Role.ToString(), response.Role);
-            Assert.Equal(user.Password.Value, response.Password);
             Assert.Equal(user.PhoneNumber.Value, response.PhoneNumber);
         }
     }

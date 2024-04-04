@@ -1,4 +1,5 @@
 ﻿using Domain.Auth;
+using Domain.Auth.ValueObjects;
 using Domain.Users;
 using Domain.Users.ValueObjects;
 
@@ -6,9 +7,9 @@ namespace Application.Auth
 {
     public interface IAuthRepository
     {
-        Task<Session> GetByToken(string token);
+        Task<Session> GetByToken(TokenValueObject token);
         Task<Session> Create(Session session);
-        Task<int> Delete(string token);
+        Task<int> Delete(TokenValueObject token);
         Task<User> GetUserByUsername(string username);
         Task<bool> VerifyCredentials(string username, PasswordValueObject password);
     }

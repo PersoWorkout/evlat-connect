@@ -1,5 +1,6 @@
 ﻿using Application.Auth;
 using Domain.Auth;
+using Domain.Auth.ValueObjects;
 using Domain.Users;
 using Domain.Users.ValueObjects;
 
@@ -21,9 +22,10 @@ namespace Application.UnitTest.Fakers.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Session> GetByToken(string token)
+        public async Task<Session> GetByToken(TokenValueObject token)
         {
-            throw new NotImplementedException();
+            return Sessions.FirstOrDefault(x =>
+                Equals(x.Token, token));
         }
 
         public async Task<User> GetUserByUsername(string username)
@@ -39,6 +41,11 @@ namespace Application.UnitTest.Fakers.Repositories
                 return false;
 
             return user.Password == password;
+        }
+
+        public Task<int> Delete(TokenValueObject token)
+        {
+            throw new NotImplementedException();
         }
 
         public void ClearLists()
