@@ -53,9 +53,15 @@ namespace Application.UnitTest.Fakers.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<User> Update(User user)
+        public async Task<User> Update(User user)
         {
-            throw new NotImplementedException();
+            var idx = Users.FindIndex(x => x.Id == user.Id);
+
+            if (idx == -1)
+                return null;
+
+            Users[idx] = user;
+            return user;
         }
 
         public void ClearUsers()

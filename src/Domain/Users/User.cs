@@ -17,11 +17,13 @@ namespace Domain.Users
         public Class? CLass { get; set; }
         public List<Class>? Classes { get; set; }
 
-        public void UpdateByUser(
+        public void Update(
             string? firstname = null,
             string? lastname = null,
+            string? username = null,
             PasswordValueObject? password = null,
-            PhoneNumberValueObject? phoneNumber = null)
+            PhoneNumberValueObject? phoneNumber = null,
+            Guid? classId = null)
         {
             if(!string.IsNullOrEmpty(firstname))
                 Firstname = firstname;
@@ -29,34 +31,19 @@ namespace Domain.Users
             if (!string.IsNullOrEmpty(lastname))
                 Lastname = lastname;
 
+            if (!string.IsNullOrEmpty(username))
+                Username = username;
+
             if (password is not null)
                 Password = password;
 
             if (phoneNumber is not null)
                 PhoneNumber = phoneNumber;
 
+            if(classId.HasValue)
+                ClassId = classId.Value;
+
             UpdatedAt = DateTime.Now;
-        }
-
-        public void UpdateByAdmin(
-            string? firstname = null,
-            string? lastname = null,
-            PasswordValueObject? password = null,
-            PhoneNumberValueObject? phoneNumber = null,
-            string? username = null,
-            UserRole? role = null)
-        {
-            if (!string.IsNullOrEmpty(username))
-                Username = username;
-
-            if (role.HasValue)
-                Role = role.Value;
-
-            UpdateByUser(
-                firstname, 
-                lastname, 
-                password, 
-                phoneNumber);
         }
     }
 }
