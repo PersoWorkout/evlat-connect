@@ -28,14 +28,24 @@ namespace Application.UnitTest.Fakers.Repositories
             return Subjects;
         }
 
-        public Task<Subject> GetById()
+        public async Task<Subject> GetById(Guid id)
         {
-            throw new NotImplementedException();
+            var idx = Subjects.FindIndex(x => x.Id == id);
+
+            if (idx == -1)
+                return null;
+
+            return Subjects[idx];
         }
 
         public Task<Subject> Update(Subject subject)
         {
             throw new NotImplementedException();
+        }
+
+        public void ClearSubjects()
+        {
+            Subjects = [];
         }
     }
 }
