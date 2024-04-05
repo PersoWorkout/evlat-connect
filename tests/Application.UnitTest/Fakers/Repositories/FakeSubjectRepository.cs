@@ -38,9 +38,16 @@ namespace Application.UnitTest.Fakers.Repositories
             return Subjects[idx];
         }
 
-        public Task<Subject> Update(Subject subject)
+        public async Task<Subject> Update(Subject subject)
         {
-            throw new NotImplementedException();
+            var idx = Subjects.FindIndex(x => x.Id == subject.Id);
+
+            if (idx == -1)
+                return null;
+
+            Subjects[idx] = subject;
+
+            return subject;
         }
 
         public void ClearSubjects()

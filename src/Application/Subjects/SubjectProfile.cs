@@ -1,4 +1,5 @@
 ﻿using Application.Subjects.CreateSubject;
+using Application.Subjects.UpdateSubject;
 using AutoMapper;
 using Domain.Subjects;
 using Domain.Subjects.DTOs;
@@ -11,6 +12,8 @@ namespace Application.Subjects
         {
             CreateMap<CreateSubjectRequest, CreateSubjectCommand>();
             CreateMap<CreateSubjectCommand, Subject>();
+
+            CreateMap<UpdateSubjectRequest, UpdateSubjectCommand>();
 
             CreateMap<Subject, SubjectResponse>()
                 .ForMember(dest => dest.Id,
