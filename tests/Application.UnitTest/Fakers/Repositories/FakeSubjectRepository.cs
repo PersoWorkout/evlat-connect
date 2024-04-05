@@ -18,9 +18,15 @@ namespace Application.UnitTest.Fakers.Repositories
             return subject;
         }
 
-        public Task<Subject> Delete(Subject subject)
+        public async Task<int> Delete(Subject subject)
         {
-            throw new NotImplementedException();
+            var idx = Subjects.FindIndex(x => x.Id == subject.Id);
+
+            if (idx == -1)
+                return 0;
+
+            Subjects.RemoveAt(idx);
+            return 1;
         }
 
         public async Task<IEnumerable<Subject>> GetAll()

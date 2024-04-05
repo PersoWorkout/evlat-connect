@@ -8,6 +8,6 @@ namespace Application.Subjects
         Task<Subject> Create(Subject subject);
         Task<Subject> GetById(Guid id);
         Task<Subject> Update(Subject subject);
-        Task<Subject> Delete(Subject subject);
+        Task<int> Delete(Subject subject);
     }
 }
