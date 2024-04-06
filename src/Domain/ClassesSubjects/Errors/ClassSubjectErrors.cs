@@ -15,5 +15,8 @@ namespace Domain.ClassesSubjects.Errors
 
         public static readonly Error CoursAlreadyExist =
             new("ClassSubject.AlreadyExist", "A cours already exist for this class and this period.");
+
+        public static readonly Error InvalidDates =
+            new("Dates.Invalid", "The pasted dates are invalid. 'From' must be less than 'To'.");
     }
 }

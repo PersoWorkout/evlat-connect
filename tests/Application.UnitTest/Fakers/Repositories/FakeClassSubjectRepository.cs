@@ -35,9 +35,13 @@ namespace Application.UnitTest.Fakers.Repositories
                 (x.StartedAt < finishedAt && x.FinishedAt >= finishedAt));
         }
 
-        public Task<IEnumerable<ClassSubject>> GetByClass(Guid classId, DateTime? from = null, DateTime? at = null)
+        public async Task<IEnumerable<ClassSubject>> GetByClass(Guid classId, DateTime? from = null, DateTime? to = null)
         {
-            throw new NotImplementedException();
+            return ClassesSubjects.Where(x =>
+                x.ClassId == classId &&
+                (!from.HasValue || x.StartedAt >= from.Value) &&
+                (!to.HasValue || x.FinishedAt <= to.Value))
+                .ToList();
         }
 
         public Task<ClassSubject> GetByClassAndDate(Guid classId, DateTime startedAt)
