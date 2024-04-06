@@ -8,7 +8,10 @@ namespace Application.ClassesSubjects
             Guid classId, 
             DateTime? from = null, 
             DateTime? at = null);
-        Task<IEnumerable<ClassSubject>> GetByProfessorId(Guid ProfessorId);
+        Task<IEnumerable<ClassSubject>> GetByProfessorId(
+            Guid ProfessorId,
+            DateTime? from = null,
+            DateTime? at = null);
         Task<ClassSubject> Create(ClassSubject classSubject);
         Task<ClassSubject> GetByClassAndDate(Guid classId, DateTime startedAt);
         Task<bool> ExistByClassAndDates(Guid classId, DateTime startedAt, DateTime finishedAt);
