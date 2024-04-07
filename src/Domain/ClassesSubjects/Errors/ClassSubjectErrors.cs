@@ -18,5 +18,14 @@ namespace Domain.ClassesSubjects.Errors
 
         public static readonly Error InvalidDates =
             new("Dates.Invalid", "The pasted dates are invalid. 'From' must be less than 'To'.");
+
+        public static readonly Error InvalidClassId =
+            new("ClassId.Invalid", "The 'classId' format is not valid.");
+
+        public static readonly Error InvalidStartedDateFormat =
+            new("StartedDate.Invalid", "The 'startedDate' formta is not valid");
+
+        public static readonly Error ClassSubjectNotFound =
+            new("ClassSubject.NotFound", "The requested class subject was not found.");
     }
 }

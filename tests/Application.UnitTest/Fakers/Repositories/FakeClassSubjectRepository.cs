@@ -44,12 +44,14 @@ namespace Application.UnitTest.Fakers.Repositories
                 .ToList();
         }
 
-        public Task<ClassSubject> GetByClassAndDate(Guid classId, DateTime startedAt)
+        public async Task<ClassSubject> GetByClassAndDate(Guid classId, DateTime startedAt)
         {
-            throw new NotImplementedException();
+            return ClassesSubjects
+                .Where(x => x.ClassId == classId && x.StartedAt == startedAt)
+                .FirstOrDefault();
         }
 
-        public Task<IEnumerable<ClassSubject>> GetByProfessorId(Guid ProfessorId)
+        public Task<IEnumerable<ClassSubject>> GetByProfessorId(Guid ProfessorId, DateTime? from = null, DateTime? to = null)
         {
             throw new NotImplementedException();
         }
