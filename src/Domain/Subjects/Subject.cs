@@ -1,4 +1,5 @@
 ﻿using Domain.Abstract;
+using Domain.Competences;
 
 namespace Domain.Subjects
 {
@@ -6,6 +7,7 @@ namespace Domain.Subjects
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public List<Competence>? Competences { get; set; }
 
         public void Update(
             string? name = null, 
