@@ -17,12 +17,12 @@ namespace Domain.ClassesSubjects
         public Subject Subject { get; set; }
 
         public void Update(
-            DateTime? startedAt = null, 
+            Guid? subjectId = null, 
             DateTime? finishedAt = null,
             string? message = null)
         {
-            if (startedAt.HasValue)
-                StartedAt = startedAt.Value;
+            if (subjectId.HasValue)
+                SubjectId = subjectId.Value;
 
             if (finishedAt.HasValue)
                 FinishedAt = finishedAt.Value;

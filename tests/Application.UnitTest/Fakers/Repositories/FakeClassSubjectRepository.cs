@@ -56,9 +56,17 @@ namespace Application.UnitTest.Fakers.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<ClassSubject> Update(ClassSubject classSubject)
+        public async Task<ClassSubject> Update(ClassSubject classSubject)
         {
-            throw new NotImplementedException();
+            var idx = ClassesSubjects.FindIndex(x => 
+                x.ClassId == classSubject.ClassId && 
+                x.StartedAt == classSubject.StartedAt);
+
+            if (idx == -1) return null;
+
+            ClassesSubjects[idx] = classSubject;
+
+            return classSubject;
         }
 
         public void ClearClassesSubjects()
