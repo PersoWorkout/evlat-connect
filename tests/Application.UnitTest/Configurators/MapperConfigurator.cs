@@ -1,6 +1,7 @@
 ﻿using Application.Auth;
 using Application.Classes;
 using Application.ClassesSubjects;
+using Application.Competences;
 using Application.Subjects;
 using Application.Users;
 using AutoMapper;
@@ -41,6 +42,13 @@ namespace Application.UnitTest.Configurators
         {
             return new MapperConfiguration(config =>
                 config.AddProfile<ClassSubjectProfile>())
+                .CreateMapper();
+        }
+
+        public static IMapper ConfigureCompetenceProfile()
+        {
+            return new MapperConfiguration(config =>
+                config.AddProfile<CompetenceProfile>())
                 .CreateMapper();
         }
 
