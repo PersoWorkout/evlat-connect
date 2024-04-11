@@ -12,12 +12,16 @@ namespace Domain.Competences
         public Subject Subject { get; set; }
 
         public void Update(
-            string? name = null, 
+            string? name = null,
+            string? description = null,
             List<Link>? links = null,
             Guid? subjectId = null)
         {
             if (!string.IsNullOrEmpty(name))
                 Name = name;
+
+            if (!string.IsNullOrEmpty(description))
+                Description = description;
 
             if (links is not null)
                 Links = links;

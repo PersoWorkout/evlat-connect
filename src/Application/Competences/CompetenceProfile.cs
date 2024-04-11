@@ -1,4 +1,5 @@
 ﻿using Application.Competences.CreateCompetence;
+using Application.Competences.UpdateCompetence;
 using AutoMapper;
 using Domain.Competences;
 using Domain.Competences.DTOs;
@@ -14,8 +15,16 @@ namespace Application.Competences
                     opt => opt.MapFrom(
                         src => Guid.Parse(src.SubjectId)));
 
-            CreateMap<CreateCompetenceCommand, Competence>();
+            CreateMap<UpdateCompetenceRequest, UpdateCompetenceCommand>()
+                .ForMember(dest => dest.SubjectId,
+                    opt => opt.MapFrom(
+                        src => Guid.Parse(src.SubjectId!)))
+                .ForMember(dest => dest.SubjectId,
+                    opt => opt.Condition(
+                        src => !string.IsNullOrEmpty(src.SubjectId)));
 
+            CreateMap<CreateCompetenceCommand, Competence>();
+            
             CreateMap<Competence, CompetenceResponse>()
                 .ForMember(dest => dest.SubjectId,
                     opt => opt.MapFrom(
@@ -23,6 +32,8 @@ namespace Application.Competences
                 .ForMember(dest => dest.Id,
                     opt => opt.MapFrom(
                         src => src.Id.ToString()));
+
+
         }
     }
 }
