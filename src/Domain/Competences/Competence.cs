@@ -1,4 +1,5 @@
 ﻿using Domain.Abstract;
+using Domain.CompetencesLinks;
 using Domain.Subjects;
 
 namespace Domain.Competences
@@ -7,14 +8,13 @@ namespace Domain.Competences
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<Link> Links { get; set; }
         public Guid SubjectId { get; set; }
         public Subject Subject { get; set; }
+        public List<CompetenceLink> Links { get; set; }
 
         public void Update(
             string? name = null,
             string? description = null,
-            List<Link>? links = null,
             Guid? subjectId = null)
         {
             if (!string.IsNullOrEmpty(name))
@@ -22,9 +22,6 @@ namespace Domain.Competences
 
             if (!string.IsNullOrEmpty(description))
                 Description = description;
-
-            if (links is not null)
-                Links = links;
 
             if(subjectId.HasValue)
                 SubjectId = subjectId.Value;

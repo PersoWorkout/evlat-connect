@@ -7,21 +7,11 @@ namespace Application.UnitTest.Fakers.Repositories
     {
         public List<Competence> Competences { get; set; } = [];
 
-        public Task<Competence> AddLink(Link link)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Competence> Create(Competence competence)
         {
             Competences.Add(competence);
 
             return competence;
-        }
-
-        public Task<Competence> Delete(Link link)
-        {
-            throw new NotImplementedException();
         }
 
         public Task<int> Delete(Competence competence)
@@ -48,11 +38,6 @@ namespace Application.UnitTest.Fakers.Repositories
             Competences[idx] = competence;
 
             return competence;
-        }
-
-        public Task<Competence> UpdateLink(Link link)
-        {
-            throw new NotImplementedException();
         }
 
         public void ClearCompetences()

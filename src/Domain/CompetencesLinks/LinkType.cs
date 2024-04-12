@@ -1,4 +1,4 @@
-﻿namespace Domain.Competences
+﻿namespace Domain.CompetencesLinks
 {
     public enum LinkType
     {
