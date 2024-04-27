@@ -2,6 +2,7 @@
 using Application.Classes;
 using Application.ClassesSubjects;
 using Application.Competences;
+using Application.CompetencesLink;
 using Application.Subjects;
 using Application.Users;
 using AutoMapper;
@@ -52,6 +53,14 @@ namespace Application.UnitTest.Configurators
                 .CreateMapper();
         }
 
+        public static IMapper ConfigureCompetenceLinkProfile()
+        {
+            return new MapperConfiguration(config =>
+                config.AddProfile<CompetenceLinkProfile>())
+                .CreateMapper();
+
+        }
+
         public static IMapper ConfigureAll()
         {
             return new MapperConfiguration(config =>
@@ -60,6 +69,9 @@ namespace Application.UnitTest.Configurators
                 config.AddProfile<ClassProfile>();
                 config.AddProfile<UserProfile>();
                 config.AddProfile<SubjectProfile>();
+                config.AddProfile<ClassSubjectProfile>();
+                config.AddProfile<CompetenceProfile>();
+                config.AddProfile<CompetenceLinkProfile>();
                 
             }).CreateMapper();          
         }

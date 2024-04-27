@@ -19,6 +19,9 @@ namespace Domain.CompetencesLinks.Errors
         public static readonly Error CompetenceNull =
             new("CompetenceId.Null", "The 'competenceId' must not be null");
 
+        public static readonly Error CompetenceInvalid =
+            new("CompetenceId.Invalid", "The 'competenceId' is not valid");
+
         public static Error CompetenceNotFound(string id) =>
             new("CompetenceId.NotFound", $"The competence with id {id} was not found");
     }
