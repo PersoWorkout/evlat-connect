@@ -24,5 +24,8 @@ namespace Domain.CompetencesLinks.Errors
 
         public static Error CompetenceNotFound(string id) =>
             new("CompetenceId.NotFound", $"The competence with id {id} was not found");
+
+        public static Error CompetenceLinkNotFound(string id) =>
+            new("CompetenceLink.NotFound", $"The competence link with id {id} was not found");
     }
 }
